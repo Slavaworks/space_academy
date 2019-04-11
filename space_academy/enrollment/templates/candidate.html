@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Данные кандидата </title>
+</head>
+<body>
+    <hr>
+    <h1 class = "title">Заполни анкету, странник!</h1>
+    <form action="/register_quest/" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type=submit> Далее </button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Ответы {{ candidate.name }}</title>
+</head>
+<body>
+    <hr>
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-lg-4">
+                <h1 class = "title">Ответы Кандидата {{ candidate.name }}</h1>
+                <div>
+                    <form action="/jedies/{{ jedi.id }}/{{ candidate.id }}/answers/" method="POST"> {% csrf_token %}
+                            <br>
+                        <table border="1" width="100%" cellpadding="5">
+                        <h4><th> Вопрос </th></h4>
+                        <h4><th> Ответ </th></h4>
+                            {% for question, answer in answers %}
+                                <tr>
+                                    <h4><th> {{ question }} </th></h4>
+                                    <h4><th> {{ answer }} </th></h4>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                        <div>
+                            <button type=submit class="btn btn-primary"> Принять в Падаваны </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

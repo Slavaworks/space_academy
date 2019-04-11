@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title> Все Джедаи! </title>
+</head>
+<body>
+    <a href='/'><input type=button value='На главную'></a>
+    <hr>
+    <form action='/jedies/' method='get'>
+        Поиск Джедая <input type='text' name='q'>
+        <input type='submit' value='Поиск'>
+    </form>
+    <table border="1" width="100%" cellpadding="5">
+        <h4><th> Имя джедая </th></h4>
+        <h4><th> Планета обучения </th></h4>
+        <h4><th> Число Падаванов </th></h4>
+        {% for jedi in jedies %}
+            <tr>
+                <h4><th><a href="/jedies/{{ jedi.id }}/"> {{ jedi.name }}</a></th></h4>
+                <h4><th> {{ jedi.planet }} </th></h4>
+                <h4><th> {{ jedi.numbers_of_padawan }}</th></h4>
+            </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>

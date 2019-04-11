@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Кандидаты для {{ jedi.name }} </title>
+</head>
+<body>
+    <a href='/'><input type=button value='На главную'></a>
+    <hr>
+    <form action='/jedies/{{ jedi.id }}/' method='get'>
+        Поиск Кандидата <input type='text' name='q'>
+        <input type='submit' value='Поиск'>
+    </form>
+    <table border="1" width="100%" cellpadding="5">
+        <h4><th> Имя Кандидата </th></h4>
+        <h4><th> Планета обитания </th></h4>
+        {% for candidate in candidates %}
+            <tr>
+                <h4><th> <a href="/jedies/{{ jedi.id }}/{{ candidate.id }}/answers/"> {{ candidate.name }} </a></th></h4>
+                <h4><th> {{ candidate.planet }} </th></h4>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Вопросы </title>
+</head>
+<body>
+    <hr>
+    <h1 class = "title">Пожалуйста, ответьте на вопросы! </h1>
+    <form action="/end_quest/{{ candidate.id }}/" method="POST">
+        {% csrf_token %}
+            <br>
+        <table border="1" width="100%" cellpadding="5">
+        <h4><th> Вопрос </th></h4>
+        <h4><th> Ваш ответ </th></h4>
+        {% for question in questions %}
+            <tr>
+                <h4><th> {{ question.question }} </th></h4>
+                <h4><th> <input type="text" name="answer_{{ question.id }}"> </th></h4>
+            </tr>
+        {% endfor %}
+        </table>
+        <input type="hidden" name="questions_ids" value="{{ questions_ids }}">
+        <button type=submit> Принять </button>
+    </form>
+</body>
+</html>
